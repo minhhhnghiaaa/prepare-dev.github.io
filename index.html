@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BE - NestJS Learning Path</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        nav {
+            background-color: #e9ecef;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        h1, h2, h3, h4 {
+            color: #343a40;
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 5px;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            border-radius: 3px;
+            font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        pre {
+            background-color: #343a40;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 90%;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
+            font-size: inherit;
+            color: inherit;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        strong {
+            color: #495057;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1em;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #e9ecef;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffeeba;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BE - Lộ trình học NestJS</h1>
+
+        <nav>
+            <ul>
+                <li><a href="#js-ts">JavaScript/TypeScript</a></li>
+                <li><a href="#tools">Công cụ</a></li>
+                <li><a href="#nestjs">NestJS Framework</a></li>
+                <li><a href="#database">Cơ sở dữ liệu (MySQL)</a></li>
+                <li><a href="#web-api">Web & API</a></li>
+            </ul>
+        </nav>
+
+        <section id="js-ts">
+            <h2>I. Kiến thức về Ngôn ngữ lập trình - JavaScript/TypeScript</h2>
+
+            <h3>1. Cài đặt môi trường</h3>
+            <ul>
+                <li>Cài đặt Node.js (bao gồm npm): Tải về từ <a href="https://nodejs.org/" target="_blank">nodejs.org</a>. Node.js là môi trường runtime để chạy JavaScript phía server.</li>
+                <li>Kiểm tra cài đặt: Mở terminal/command prompt và chạy <code>node -v</code> và <code>npm -v</code>.</li>
+                <li>Cài đặt TypeScript (global): <code>npm install -g typescript</code>. Kiểm tra bằng <code>tsc -v</code>.</li>
+            </ul>
+
+            <h3>2. Các khái niệm cơ bản JavaScript</h3>
+            <ul>
+                <li><strong>Biến (Variables):</strong> Khai báo với <code>var</code> (tránh dùng), <code>let</code> (biến có thể gán lại giá trị), <code>const</code> (hằng số, không thể gán lại sau khi khởi tạo).</li>
+                <li><strong>Kiểu dữ liệu (Data Types):</strong>
+                    <ul>
+                        <li>Nguyên thủy (Primitive): <code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code>, <code>symbol</code>, <code>bigint</code>.</li>
+                        <li>Đối tượng (Object): <code>object</code> (bao gồm arrays, functions, objects).</li>
+                    </ul>
+                </li>
+                <li><strong>Toán tử (Operators):</strong> Số học (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>), gán (<code>=</code>, <code>+=</code>), so sánh (<code>==</code>, <code>===</code>, <code>!=</code>, <code>!==</code>, <code>></code>, <code><</code>), logic (<code>&&</code>, <code>||</code>, <code>!</code>), ba ngôi (<code>condition ? expr1 : expr2</code>), typeof, instanceof, v.v.</li>
+                <li><strong>Điều kiện (Conditionals):</strong> <code>if...else</code>, <code>switch...case</code>.</li>
+                <li><strong>Vòng lặp (Loops):</strong> <code>for</code>, <code>for...in</code> ( duyệt keys của object), <code>for...of</code> (duyệt values của iterable), <code>while</code>, <code>do...while</code>.</li>
+            </ul>
+
+            <h3>3. Các khái niệm nâng cao JavaScript</h3>
+            <ul>
+                <li><strong>Hàm (Functions):</strong> Khai báo (<code>function name() {}</code>), biểu thức hàm (<code>const name = function() {}</code>), hàm mũi tên (<code>const name = () => {}</code>).</li>
+                <li><strong>Callback:</strong> Hàm được truyền vào một hàm khác như một đối số và được gọi lại sau khi một tác vụ hoàn thành. Thường dùng trong xử lý bất đồng bộ cũ.</li>
+                <li><strong>Promises:</strong> Đối tượng đại diện cho kết quả (thành công hoặc thất bại) của một hoạt động bất đồng bộ. Có các trạng thái: pending, fulfilled, rejected. Phương thức: <code>.then()</code>, <code>.catch()</code>, <code>.finally()</code>. Static methods: <code>Promise.all()</code>, <code>Promise.race()</code>, <code>Promise.resolve()</code>, <code>Promise.reject()</code>.</li>
+                <li><strong>Async/Await:</strong> Cú pháp "syntactic sugar" giúp viết code bất đồng bộ trông giống như code đồng bộ, dễ đọc và quản lý hơn Promises. <code>async</code> đánh dấu hàm chứa thao tác bất đồng bộ, <code>await</code> đợi Promise được giải quyết.</li>
+<pre><code class="language-javascript">async function fetchData() {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Fetch error:', error);
+  }
+}
+</code></pre>
+                <li><strong>Object:</strong> Tập hợp các cặp key-value. Key là string hoặc symbol, value có thể là bất kỳ kiểu dữ liệu nào. Methods: <code>Object.keys()</code>, <code>Object.values()</code>, <code>Object.entries()</code>, <code>Object.assign()</code>, v.v.</li>
+                <li><strong>Class (ES6):</strong> Cú pháp tạo blueprint cho object. Bao gồm constructor, methods, static methods, getters/setters, inheritance (<code>extends</code>), <code>super()</code>.</li>
+                <li><strong>String Methods:</strong> <code>.length</code>, <code>.toUpperCase()</code>, <code>.toLowerCase()</code>, <code>.slice()</code>, <code>.substring()</code>, <code>.indexOf()</code>, <code>.includes()</code>, <code>.split()</code>, <code>.join()</code>, <code>.replace()</code>, <code>.trim()</code>, v.v.</li>
+                <li><strong>Number Methods:</strong> <code>.toFixed()</code>, <code>.toString()</code>, <code>parseInt()</code>, <code>parseFloat()</code>, <code>isNaN()</code>, <code>Number.isInteger()</code>, Math object (<code>Math.random()</code>, <code>Math.floor()</code>, <code>Math.ceil()</code>, <code>Math.round()</code>, <code>Math.max()</code>, <code>Math.min()</code>).</li>
+                <li><strong>Array Methods:</strong> <code>.length</code>, <code>.push()</code>, <code>.pop()</code>, <code>.shift()</code>, <code>.unshift()</code>, <code>.slice()</code>, <code>.splice()</code>, <code>.concat()</code>, <code>.join()</code>, <code>.forEach()</code>, <code>.map()</code>, <code>.filter()</code>, <code>.reduce()</code>, <code>.find()</code>, <code>.findIndex()</code>, <code>.some()</code>, <code>.every()</code>, <code>.sort()</code>, <code>.reverse()</code>, v.v.</li>
+                <li><strong>Scope:</strong> Phạm vi truy cập của biến (Global, Function/Local, Block scope với <code>let</code>/<code>const</code>). Closure: hàm con có thể truy cập biến của hàm cha ngay cả khi hàm cha đã thực thi xong.</li>
+                <li><strong>JSON (JavaScript Object Notation):</strong> Định dạng trao đổi dữ liệu nhẹ, dễ đọc/viết cho người, dễ phân tích/tạo cho máy. Methods: <code>JSON.stringify()</code> (object -> JSON string), <code>JSON.parse()</code> (JSON string -> object).</li>
+            </ul>
+
+            <h3>4. TypeScript</h3>
+            <p>TypeScript là một superset của JavaScript, bổ sung hệ thống kiểu tĩnh và các tính năng khác.</p>
+            <ul>
+                <li><strong>Type System:</strong> Khai báo kiểu cho biến, tham số hàm, giá trị trả về. Ví dụ: <code>let name: string = "NestJS";</code>, <code>function add(a: number, b: number): number { return a + b; }</code>.</li>
+                <li><strong>Class:</strong> Tương tự ES6 Class nhưng có thêm access modifiers (<code>public</code>, <code>private</code>, <code>protected</code>), khai báo thuộc tính trong constructor.</li>
+                <li><strong>Interface:</strong> Định nghĩa "contract" cho cấu trúc của object. Chỉ định các thuộc tính và phương thức mà một đối tượng phải có. Không được biên dịch ra JavaScript.</li>
+<pre><code class="language-typescript">interface User {
+  id: number;
+  name: string;
+  email?: string; // Optional property
+  readonly role: string; // Read-only property
+  getInfo(): string;
+}
+</code></pre>
+                <li><strong>Enums:</strong> Tập hợp các hằng số có tên. Giúp code dễ đọc và bảo trì hơn.</li>
+<pre><code class="language-typescript">enum Role {
+  ADMIN = 'ADMIN',
+  USER = 'USER',
+  GUEST = 'GUEST'
+}
+let userRole: Role = Role.ADMIN;
+</code></pre>
+                <li><strong>Type Alias:</strong> Đặt tên mới cho một kiểu dữ liệu (có thể là kiểu nguyên thủy, union, intersection, tuple, v.v.).</li>
+<pre><code class="language-typescript">type StringOrNumber = string | number;
+type UserId = number;
+</code></pre>
+                <li><strong>Generics:</strong> Cho phép viết code tái sử dụng được với nhiều kiểu dữ liệu khác nhau mà vẫn đảm bảo type safety.</li>
+<pre><code class="language-typescript">function identity<T>(arg: T): T {
+  return arg;
+}
+let output1 = identity<string>("myString");
+let output2 = identity<number>(123);
+</code></pre>
+            </ul>
+        </section>
+
+        <section id="tools">
+            <h2>II. Khả năng sử dụng công cụ</h2>
+            <ul>
+                <li><strong>Git, GitLab/GitHub/Bitbucket:</strong> Hệ thống quản lý phiên bản phân tán. Các lệnh cơ bản: <code>git clone</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code>, <code>git pull</code>, <code>git branch</code>, <code>git checkout</code>, <code>git merge</code>, <code>git log</code>. Hiểu về workflow (e.g., Gitflow). GitLab/GitHub/Bitbucket là nền tảng hosting Git repository và cung cấp các tính năng CI/CD, issue tracking.</li>
+                <li><strong>Postman/Insomnia:</strong> Công cụ để kiểm thử API. Gửi các loại request (GET, POST, PUT, DELETE,...), quản lý environments, viết test scripts.</li>
+                <li><strong>IDE (Integrated Development Environment):</strong> Môi trường phát triển tích hợp. Phổ biến cho NestJS: Visual Studio Code (VS Code). Tính năng: code completion, debugging, terminal tích hợp, extensions (ESLint, Prettier, GitLens,...).</li>
+                <li><strong>DBMS (Database Management System):</strong> Công cụ quản lý cơ sở dữ liệu. Ví dụ: DBeaver, MySQL Workbench, pgAdmin (cho PostgreSQL), TablePlus. Dùng để xem dữ liệu, viết query, quản lý schema.</li>
+                <li><strong>Package Manager (npm, yarn):</strong> Công cụ quản lý thư viện/dependencies cho dự án Node.js. Lệnh cơ bản: <code>npm install <package></code>, <code>npm run <script></code>, <code>yarn add <package></code>, <code>yarn <script></code>. Hiểu về file <code>package.json</code> và <code>package-lock.json</code> / <code>yarn.lock</code>.</li>
+                <li><strong>Eslint, Prettier:</strong> Công cụ phân tích code tĩnh (Linting) và định dạng code (Formatting). Giúp đảm bảo code style nhất quán, phát hiện lỗi tiềm ẩn. Thường tích hợp vào IDE và quy trình CI.</li>
+            </ul>
+        </section>
+
+        <section id="nestjs">
+            <h2>III. Kiến thức về Thư viện, Framework (NestJS)</h2>
+
+            <h3>1. Cài đặt môi trường, runtime</h3>
+            <ul>
+                <li>Cần Node.js (phiên bản LTS được khuyến nghị).</li>
+                <li>Cài đặt NestJS CLI: <code>npm i -g @nestjs/cli</code>.</li>
+                <li>Tạo dự án mới: <code>nest new project-name</code>.</li>
+                <li>Chạy ứng dụng dev: <code>npm run start:dev</code> (hoặc <code>yarn start:dev</code>).</li>
+            </ul>
+
+            <h3>2. NestJS CLI</h3>
+            <p>Công cụ dòng lệnh giúp khởi tạo dự án và tạo các thành phần cơ bản (scaffolding).</p>
+            <ul>
+                <li><code>nest new <name></code>: Tạo dự án mới.</li>
+                <li><code>nest generate module <name></code> (hoặc <code>nest g mo <name></code>): Tạo module.</li>
+                <li><code>nest generate controller <name></code> (hoặc <code>nest g co <name></code>): Tạo controller.</li>
+                <li><code>nest generate service <name></code> (hoặc <code>nest g s <name></code>): Tạo service.</li>
+                <li><code>nest generate guard <name></code> (hoặc <code>nest g gu <name></code>): Tạo guard.</li>
+                <li><code>nest generate pipe <name></code> (hoặc <code>nest g pi <name></code>): Tạo pipe.</li>
+                <li><code>nest generate interface <name></code> (hoặc <code>nest g itf <name></code>): Tạo interface (ít dùng hơn class/DTO).</li>
+                <li><code>nest generate class <name></code> (hoặc <code>nest g cl <name></code>): Tạo class.</li>
+                <li>... và nhiều thành phần khác (middleware, interceptor, filter, resource).</li>
+            </ul>
+
+            <h3>3. Modules (<code>@Module()</code>)</h3>
+            <p>Tổ chức code thành các đơn vị logic. Mỗi ứng dụng NestJS có ít nhất một root module (<code>AppModule</code>). Một module đóng gói controllers, providers (services), và có thể import/export các module khác.</p>
+            <ul>
+                <li><code>providers</code>: Danh sách các services sẽ được khởi tạo bởi Nest injector và có thể inject vào các thành phần khác trong module này.</li>
+                <li><code>controllers</code>: Danh sách các controllers cần được khởi tạo trong module này.</li>
+                <li><code>imports</code>: Danh sách các module khác mà module này cần sử dụng (để truy cập các providers đã được export).</li>
+                <li><code>exports</code>: Danh sách các providers của module này mà muốn cung cấp cho các module khác import nó.</li>
+            </ul>
+<pre><code class="language-typescript">import { Module } from '@nestjs/common';
+import { UsersController } from './users.controller';
+import { UsersService } from './users.service';
+
+@Module({
+  imports: [], // Import other modules if needed
+  controllers: [UsersController],
+  providers: [UsersService],
+  exports: [UsersService] // Export service if needed by other modules
+})
+export class UsersModule {}
+</code></pre>
+
+            <h3>4. Controllers (<code>@Controller()</code>)</h3>
+            <p>Chịu trách nhiệm xử lý các request đến và trả về response cho client. Định nghĩa các route và HTTP method tương ứng.</p>
+            <ul>
+                <li>Decorators định tuyến: <code>@Get()</code>, <code>@Post()</code>, <code>@Put()</code>, <code>@Patch()</code>, <code>@Delete()</code>, <code>@All()</code>. Có thể truyền path vào (e.g., <code>@Get(':id')</code>).</li>
+                <li>Decorators truy cập request data: <code>@Req()</code>, <code>@Res()</code>, <code>@Next()</code>, <code>@Session()</code>, <code>@Param()</code>, <code>@Body()</code>, <code>@Query()</code>, <code>@Headers()</code>, <code>@Ip()</code>.</li>
+            </ul>
+<pre><code class="language-typescript">import { Controller, Get, Post, Body, Param, Query } from '@nestjs/common';
+import { UsersService } from './users.service';
+import { CreateUserDto } from './dto/create-user.dto';
+
+@Controller('users') // Route prefix: /users
+export class UsersController {
+  constructor(private readonly usersService: UsersService) {}
+
+  @Post()
+  create(@Body() createUserDto: CreateUserDto) {
+    return this.usersService.create(createUserDto);
+  }
+
+  @Get()
+  findAll(@Query('role') role?: string) {
+    return this.usersService.findAll(role);
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.usersService.findOne(+id); // Convert id to number
+  }
+}
+</code></pre>
+
+            <h3>5. Services (<code>@Injectable()</code>)</h3>
+            <p>Chứa logic nghiệp vụ (business logic). Tách biệt logic khỏi controller. Services được cung cấp (provided) trong module và có thể được inject vào controllers hoặc các services khác thông qua Dependency Injection.</p>
+<pre><code class="language-typescript">import { Injectable, NotFoundException } from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
+// Assume User entity/interface exists
+
+@Injectable()
+export class UsersService {
+  private users = []; // In-memory example, replace with DB logic
+
+  create(createUserDto: CreateUserDto) {
+    const newUser = { id: Date.now(), ...createUserDto };
+    this.users.push(newUser);
+    return newUser;
+  }
+
+  findAll(role?: string) {
+    if (role) {
+      return this.users.filter(user => user.role === role);
+    }
+    return this.users;
+  }
+
+  findOne(id: number) {
+    const user = this.users.find(user => user.id === id);
+    if (!user) {
+      throw new NotFoundException(`User with ID ${id} not found`);
+    }
+    return user;
+  }
+  // ... update, remove methods
+}
+</code></pre>
+
+            <h3>6. DTOs (Data Transfer Objects)</h3>
+            <p>Đối tượng dùng để định nghĩa cấu trúc dữ liệu truyền qua mạng (thường là request body). Thường là các class đơn giản với các thuộc tính. Kết hợp với Validation Pipes để xác thực dữ liệu đầu vào.</p>
+<pre><code class="language-typescript">// src/users/dto/create-user.dto.ts
+import { IsString, IsEmail, IsNotEmpty, MinLength } from 'class-validator';
+
+export class CreateUserDto {
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(3)
+  name: string;
+
+  @IsEmail()
+  @IsNotEmpty()
+  email: string;
+
+  // Add other properties as needed
+}
+</code></pre>
+
+            <h3>7. Validation</h3>
+            <p>Sử dụng thư viện <code>class-validator</code> và <code>class-transformer</code> để xác thực và biến đổi dữ liệu đến (thường là DTOs).</p>
+            <ul>
+                <li><code>class-validator</code>: Cung cấp các decorators (<code>@IsString</code>, <code>@IsInt</code>, <code>@IsEmail</code>, <code>@MinLength</code>, etc.) để định nghĩa quy tắc validation trên thuộc tính của class (DTO).</li>
+                <li><code>class-transformer</code>: Giúp biến đổi plain object (từ JSON) thành instance của class (DTO) và ngược lại. Cần thiết để validation hoạt động đúng.</li>
+                <li><code>ValidationPipe</code>: Một built-in pipe của NestJS. Tự động áp dụng validation dựa trên decorators trong DTO. Thường được áp dụng global trong <code>main.ts</code> hoặc cục bộ tại controller/handler.</li>
+            </ul>
+<pre><code class="language-typescript">// main.ts
+import { ValidationPipe } from '@nestjs/common';
+// ... other imports
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(new ValidationPipe({
+    whitelist: true, // Strip properties not defined in DTO
+    forbidNonWhitelisted: true, // Throw error if extra properties are present
+    transform: true, // Automatically transform payload to DTO instance
+    transformOptions: {
+      enableImplicitConversion: true, // Allow implicit type conversion (e.g., string query param to number)
+    },
+  }));
+  await app.listen(3000);
+}
+bootstrap();
+</code></pre>
+
+            <h3>8. Middleware, Pipes, Guards và Interceptors</h3>
+            <p>Các thành phần xử lý request/response lifecycle trong NestJS:</p>
+            <ul>
+                <li><strong>Middleware:</strong> Thực thi trước route handler. Có thể thay đổi request/response object, gọi <code>next()</code> để chuyển sang middleware/handler tiếp theo, hoặc kết thúc chu trình. Dùng cho logging, CORS, authentication cơ bản,... Implement interface <code>NestMiddleware</code> hoặc dùng function.</li>
+                <li><strong>Pipes (<code>@Injectable()</code>, <code>PipeTransform</code>):</strong> Thực thi trước route handler, sau middleware. Dùng để <strong>biến đổi (transformation)</strong> dữ liệu đầu vào (e.g., string -> number) hoặc <strong>xác thực (validation)</strong> dữ liệu. Ví dụ: <code>ValidationPipe</code>, <code>ParseIntPipe</code>.</li>
+                <li><strong>Guards (<code>@Injectable()</code>, <code>CanActivate</code>):</strong> Thực thi trước route handler, sau middleware và pipes. Xác định xem request có được phép tiếp tục hay không (<strong>authorization</strong>). Trả về boolean hoặc Promise/Observable<boolean>. Nếu trả về false (hoặc throw exception), request bị từ chối. Dùng cho kiểm tra quyền, role-based access control.</li>
+                <li><strong>Interceptors (<code>@Injectable()</code>, <code>NestInterceptor</code>):</strong> Thực thi trước và sau route handler. Cho phép "bao bọc" quá trình thực thi handler. Dùng để:
+                    <ul>
+                        <li>Biến đổi kết quả trả về từ handler.</li>
+                        <li>Biến đổi exception được throw ra.</li>
+                        <li>Mở rộng logic cơ bản của handler (e.g., caching, logging response time).</li>
+                        <li>Override hoàn toàn handler (ít phổ biến).</li>
+                    </ul>
+                    Sử dụng phương thức <code>intercept(context, next)</code> và <code>next.handle().pipe(...)</code> (với RxJS operators).
+                </li>
+            </ul>
+            <p>Thứ tự thực thi: Middleware -> Guards -> Interceptors (before) -> Pipes -> Controller Handler -> Interceptors (after) -> Exception Filters (nếu có lỗi).</p>
+
+            <h3>9. Dependency Injection (DI)</h3>
+            <p>Là một design pattern cốt lõi của NestJS. Container của Nest (IoC container) quản lý việc khởi tạo và "tiêm" (inject) các dependencies (thường là services) vào các class khác (controllers, services, guards, etc.) thông qua constructor.</p>
+            <ul>
+                <li>Các class cần được inject (providers) phải được đánh dấu bằng <code>@Injectable()</code> và đăng ký trong mảng <code>providers</code> của module.</li>
+                <li>Việc inject được thực hiện trong constructor của class phụ thuộc.</li>
+            </ul>
+<pre><code class="language-typescript">@Controller('cats')
+export class CatsController {
+  // NestJS injects an instance of CatsService here
+  constructor(private readonly catsService: CatsService) {}
+
+  @Get()
+  findAll(): Cat[] {
+    return this.catsService.findAll();
+  }
+}
+</code></pre>
+
+            <h3>10. Connect database: TypeORM, Entity</h3>
+            <ul>
+                <li><strong>TypeORM:</strong> Một ORM (Object-Relational Mapper) phổ biến cho TypeScript và JavaScript. Giúp tương tác với database bằng cách sử dụng object và class thay vì viết SQL thuần. Hỗ trợ nhiều loại DB (MySQL, PostgreSQL, SQLite, MongoDB, etc.).</li>
+                <li><strong>Cài đặt:</strong> <code>npm install @nestjs/typeorm typeorm mysql2</code> (ví dụ cho MySQL).</li>
+                <li><strong>Configuration:</strong> Cấu hình kết nối trong <code>AppModule</code> (hoặc module riêng) sử dụng <code>TypeOrmModule.forRoot({...})</code> hoặc <code>TypeOrmModule.forRootAsync({...})</code> (để dùng ConfigService).</li>
+                <li><strong>Entity (<code>@Entity()</code>):</strong> Class đại diện cho một bảng trong database. Các thuộc tính của class tương ứng với các cột, được đánh dấu bằng decorators như <code>@PrimaryGeneratedColumn()</code>, <code>@Column()</code>, <code>@CreateDateColumn()</code>, <code>@UpdateDateColumn()</code>, <code>@ManyToOne()</code>, <code>@OneToMany()</code>, <code>@ManyToMany()</code>.</li>
+                <li><strong>Repository:</strong> Đối tượng cung cấp các phương thức để tương tác với bảng tương ứng (<code>find</code>, <code>findOne</code>, <code>save</code>, <code>update</code>, <code>delete</code>, <code>createQueryBuilder</code>,...). Inject Repository vào Service bằng <code>@InjectRepository(EntityName)</code> trong constructor của Service.</li>
+            </ul>
+<pre><code class="language-typescript">// src/users/entities/user.entity.ts
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+
+@Entity() // Decorator marks class as a TypeORM entity (maps to 'user' table by default)
+export class User {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({ length: 100 })
+  name: string;
+
+  @Column({ unique: true })
+  email: string;
+
+  @Column({ nullable: true }) // Column can be null
+  bio?: string;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+}
+</code></pre>
+<pre><code class="language-typescript">// src/users/users.service.ts
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { User } from './entities/user.entity';
+import { CreateUserDto } from './dto/create-user.dto';
+
+@Injectable()
+export class UsersService {
+  constructor(
+    @InjectRepository(User) // Inject the repository for the User entity
+    private usersRepository: Repository<User>,
+  ) {}
+
+  async create(createUserDto: CreateUserDto): Promise<User> {
+    const newUser = this.usersRepository.create(createUserDto); // Create entity instance
+    return this.usersRepository.save(newUser); // Save to database
+  }
+
+  async findAll(): Promise<User[]> {
+    return this.usersRepository.find(); // SELECT * FROM user
+  }
+
+  async findOne(id: number): Promise<User | null> {
+    return this.usersRepository.findOneBy({ id }); // SELECT * FROM user WHERE id = ?
+  }
+
+  // ... update, remove methods using repository
+}
+</code></pre>
+
+            <h3>11. Authentication và Authorization</h3>
+            <ul>
+                <li><strong>Authentication (Xác thực):</strong> Xác định danh tính người dùng (Who are you?). Thường dùng JWT (JSON Web Tokens) hoặc session-based. NestJS cung cấp module <code>@nestjs/passport</code> để tích hợp với thư viện Passport.js, hỗ trợ nhiều chiến lược (local, jwt, oauth).</li>
+                <li><strong>Authorization (Phân quyền):</strong> Xác định quyền hạn của người dùng đã xác thực (What can you do?). Thường được triển khai bằng Guards. Kiểm tra role, permissions của user trong Guard.</li>
+                <li><strong>JWT Workflow (phổ biến):</strong>
+                    1. User login với username/password.
+                    2. Server xác thực, nếu thành công, tạo JWT chứa thông tin user (e.g., userId, role) và ký bằng secret key.
+                    3. Server gửi JWT về client.
+                    4. Client lưu JWT (localStorage, sessionStorage, cookie) và gửi kèm trong Header (thường là <code>Authorization: Bearer <token></code>) của các request sau.
+                    5. Server dùng một Guard (e.g., <code>AuthGuard('jwt')</code>) để xác thực JWT trên mỗi request cần bảo vệ. Nếu hợp lệ, thông tin user từ token được gắn vào request (thường là <code>req.user</code>).
+                </li>
+            </ul>
+
+            <h3>12. Logging</h3>
+            <p>Ghi lại thông tin về hoạt động của ứng dụng, lỗi, request,...</p>
+            <ul>
+                <li>NestJS có built-in logger dựa trên <code>console</code>.</li>
+                <li>Có thể custom logger bằng cách implement interface <code>LoggerService</code>.</li>
+                <li>Sử dụng các thư viện logging mạnh mẽ hơn như Winston hoặc Pino, tích hợp thông qua custom logger hoặc module.</li>
+                <li>Log trong services, controllers, exception filters,...</li>
+            </ul>
+
+            <h3>13. Notification với Firebase (FCM)</h3>
+            <p>Gửi push notification đến client (mobile/web) thông qua Firebase Cloud Messaging.</p>
+            <ul>
+                <li>Sử dụng thư viện <code>firebase-admin</code> cho Node.js.</li>
+                <li>Tạo một Service riêng để xử lý việc gửi notification.</li>
+                <li>Cấu hình Firebase Admin SDK với service account key.</li>
+                <li>Lưu device tokens của user trong DB.</li>
+                <li>Gọi phương thức <code>admin.messaging().send()</code> hoặc <code>sendToDevice()</code>, <code>sendMulticast()</code>,... để gửi thông báo.</li>
+            </ul>
+
+            <h3>14. Transactions</h3>
+            <p>Đảm bảo một chuỗi các thao tác database được thực hiện thành công toàn bộ hoặc không thực hiện gì cả (atomicity).</p>
+            <ul>
+                <li>TypeORM cung cấp nhiều cách để quản lý transaction:
+                    <ul>
+                        <li><code>entityManager.transaction(async transactionalEntityManager => { ... })</code>: Cách tiếp cận cấp cao, tự động commit/rollback.</li>
+                        <li>Sử dụng <code>QueryRunner</code>: Cấp thấp hơn, cho phép kiểm soát thủ công <code>startTransaction()</code>, <code>commitTransaction()</code>, <code>rollbackTransaction()</code>.</li>
+                        <li>Decorator <code>@Transaction()</code> và <code>@TransactionRepository()</code> (cần cài đặt thêm).</li>
+                    </ul>
+                </li>
+                <li>Quan trọng khi thực hiện nhiều thao tác ghi (insert/update/delete) liên quan đến nhau.</li>
+            </ul>
+
+            <h3>15. CRUD Operations</h3>
+            <p>Các thao tác cơ bản với dữ liệu: Create, Read, Update, Delete. Đây là nền tảng của hầu hết các API RESTful.</p>
+            <ul>
+                <li><strong>Create:</strong> Thường dùng <code>POST</code> request. Controller nhận DTO từ body, gọi service, service dùng repository để <code>save()</code> hoặc <code>insert()</code>.</li>
+                <li><strong>Read (List):</strong> Thường dùng <code>GET</code> request (e.g., <code>/users</code>). Controller gọi service, service dùng repository <code>find()</code>. Hỗ trợ filter, pagination.</li>
+                <li><strong>Read (Detail):</strong> Thường dùng <code>GET</code> request với ID (e.g., <code>/users/:id</code>). Controller nhận ID từ param, gọi service, service dùng repository <code>findOneBy()</code>. Xử lý trường hợp not found.</li>
+                <li><strong>Update:</strong> Thường dùng <code>PUT</code> (thay thế toàn bộ) hoặc <code>PATCH</code> (cập nhật một phần). Controller nhận ID từ param và DTO từ body, gọi service, service tìm entity, cập nhật và <code>save()</code>.</li>
+                <li><strong>Delete:</strong> Thường dùng <code>DELETE</code> request với ID (e.g., <code>/users/:id</code>). Controller nhận ID từ param, gọi service, service dùng repository <code>delete()</code> hoặc <code>remove()</code>. Có thể là soft delete (đánh dấu đã xóa) hoặc hard delete.</li>
+            </ul>
+
+            <h3>16. Filter và Pagination</h3>
+            <p>Chức năng cần thiết cho các API trả về danh sách dữ liệu lớn.</p>
+            <ul>
+                <li><strong>Filtering:</strong> Lọc dữ liệu dựa trên các tiêu chí gửi từ client (thường qua query parameters, e.g., <code>/posts?status=published&authorId=1</code>). Trong service, xây dựng điều kiện <code>where</code> cho câu query TypeORM (dùng <code>find({ where: {...} })</code> hoặc QueryBuilder).</li>
+                <li><strong>Pagination:</strong> Chia danh sách kết quả thành các trang để giảm tải cho client và server.
+                    <ul>
+                        <li>Thường dùng query parameters <code>page</code> và <code>limit</code> (hoặc <code>offset</code> và <code>limit</code>).</li>
+                        <li>Trong service, sử dụng <code>skip</code> và <code>take</code> trong TypeORM: <code>find({ skip: (page - 1) * limit, take: limit, where: {...} })</code>.</li>
+                        <li>Trả về không chỉ dữ liệu trang hiện tại mà còn thông tin phân trang (tổng số item, tổng số trang, trang hiện tại).</li>
+                    </ul>
+                </li>
+                <li>Thường tạo một DTO riêng cho query parameters (e.g., <code>PaginationQueryDto</code>) để validation và typing.</li>
+            </ul>
+        </section>
+
+        <section id="database">
+            <h2>IV. Kiến thức về Cơ sở dữ liệu (MySQL)</h2>
+
+             <h3>1. Cài đặt môi trường</h3>
+            <ul>
+                <li>Cài đặt MySQL Server: Tải từ trang chủ MySQL hoặc dùng package manager (brew, apt) hoặc Docker.</li>
+                <li>Cài đặt công cụ quản lý: MySQL Workbench (official), DBeaver, TablePlus, etc.</li>
+                <li>Kết nối đến server từ công cụ quản lý hoặc ứng dụng.</li>
+            </ul>
+
+            <h3>2. Các khái niệm</h3>
+            <ul>
+                <li><strong>Database (Cơ sở dữ liệu):</strong> Tập hợp các dữ liệu được tổ chức, thường là các bảng liên quan.</li>
+                <li><strong>Table (Bảng):</strong> Cấu trúc chứa dữ liệu, gồm các hàng (rows/records) và cột (columns/fields).</li>
+                <li><strong>Row/Record (Hàng/Bản ghi):</strong> Một mục dữ liệu cụ thể trong bảng.</li>
+                <li><strong>Column/Field (Cột/Trường):</strong> Một thuộc tính dữ liệu của các bản ghi trong bảng, có kiểu dữ liệu xác định.</li>
+                <li><strong>Primary Key (Khóa chính):</strong> Một hoặc nhiều cột định danh duy nhất mỗi hàng trong bảng. Không được phép NULL.</li>
+                <li><strong>Foreign Key (Khóa ngoại):</strong> Một hoặc nhiều cột trong một bảng tham chiếu đến khóa chính của bảng khác, tạo mối quan hệ giữa các bảng.</li>
+                <li><strong>Index (Chỉ mục):</strong> Cấu trúc dữ liệu đặc biệt giúp tăng tốc độ truy vấn dữ liệu (SELECT). Trade-off: làm chậm thao tác ghi (INSERT, UPDATE, DELETE) và tốn dung lượng lưu trữ.</li>
+                <li><strong>Schema:</strong> Cấu trúc logic của database (các bảng, cột, kiểu dữ liệu, mối quan hệ, ràng buộc).</li>
+            </ul>
+
+            <h3>3. Các kiểu dữ liệu phổ biến trong MySQL</h3>
+            <ul>
+                <li><strong>Số nguyên:</strong> <code>TINYINT</code>, <code>SMALLINT</code>, <code>MEDIUMINT</code>, <code>INT</code> (<code>INTEGER</code>), <code>BIGINT</code>. Có thể là <code>UNSIGNED</code>.</li>
+                <li><strong>Số thực:</strong> <code>FLOAT</code>, <code>DOUBLE</code>, <code>DECIMAL</code> (<code>NUMERIC</code>) - dùng cho giá trị tiền tệ, cần độ chính xác cao.</li>
+                <li><strong>Chuỗi ký tự:</strong>
+                    <ul>
+                        <li><code>CHAR(n)</code>: Độ dài cố định.</li>
+                        <li><code>VARCHAR(n)</code>: Độ dài thay đổi (tối đa n ký tự).</li>
+                        <li><code>TINYTEXT</code>, <code>TEXT</code>, <code>MEDIUMTEXT</code>, <code>LONGTEXT</code>: Lưu trữ văn bản dài.</li>
+                    </ul>
+                </li>
+                <li><strong>Ngày giờ:</strong> <code>DATE</code> (YYYY-MM-DD), <code>TIME</code> (HH:MM:SS), <code>DATETIME</code> (YYYY-MM-DD HH:MM:SS), <code>TIMESTAMP</code> (tương tự DATETIME nhưng có khoảng giá trị và xử lý timezone khác biệt), <code>YEAR</code>.</li>
+                <li><strong>Boolean:</strong> Thường dùng <code>TINYINT(1)</code> (0 là false, 1 là true).</li>
+                <li><strong>Enum:</strong> <code>ENUM('value1', 'value2', ...)</code> - giới hạn giá trị cột trong một danh sách định trước.</li>
+                <li><strong>Set:</strong> <code>SET('value1', 'value2', ...)</code> - có thể chứa 0 hoặc nhiều giá trị từ danh sách định trước.</li>
+                <li><strong>JSON:</strong> Lưu trữ dữ liệu dạng JSON.</li>
+                <li><strong>Binary:</strong> <code>BINARY</code>, <code>VARBINARY</code>, <code>TINYBLOB</code>, <code>BLOB</code>, <code>MEDIUMBLOB</code>, <code>LONGBLOB</code> (lưu dữ liệu nhị phân như ảnh, file).</li>
+            </ul>
+
+            <h3>4. Các câu lệnh SQL cơ bản (Data Manipulation Language - DML)</h3>
+            <ul>
+                <li><strong><code>SELECT</code>:</strong> Truy vấn/lấy dữ liệu từ bảng.</li>
+<pre><code class="language-sql">-- Lấy tất cả cột từ bảng users
+SELECT * FROM users;
+
+-- Lấy cột name và email từ bảng users có status là 'active'
+SELECT name, email
+FROM users
+WHERE status = 'active' AND age > 18
+ORDER BY name ASC -- Sắp xếp tăng dần theo tên
+LIMIT 10 OFFSET 20; -- Lấy 10 bản ghi, bắt đầu từ bản ghi thứ 21 (phân trang)
+</code></pre>
+                <li><strong><code>INSERT</code>:</strong> Thêm bản ghi mới vào bảng.</li>
+<pre><code class="language-sql">-- Thêm một user mới
+INSERT INTO users (name, email, age)
+VALUES ('John Doe', 'john.doe@example.com', 30);
+
+-- Thêm nhiều user
+INSERT INTO users (name, email, age) VALUES
+('Jane Smith', 'jane.smith@example.com', 25),
+('Peter Jones', 'peter.jones@example.com', 40);
+</code></pre>
+                <li><strong><code>UPDATE</code>:</strong> Cập nhật bản ghi hiện có trong bảng. <strong>Luôn dùng <code>WHERE</code> cẩn thận!</strong></li>
+<pre><code class="language-sql">-- Cập nhật email cho user có id = 1
+UPDATE users
+SET email = 'new.email@example.com', updatedAt = NOW()
+WHERE id = 1;
+</code></pre>
+                <li><strong><code>DELETE</code>:</strong> Xóa bản ghi khỏi bảng. <strong>Luôn dùng <code>WHERE</code> cẩn thận!</strong></li>
+<pre><code class="language-sql">-- Xóa user có id = 5
+DELETE FROM users
+WHERE id = 5;
+</code></pre>
+            </ul>
+
+            <h3>5. Các thao tác với bảng (Data Definition Language - DDL)</h3>
+            <ul>
+                <li><strong><code>CREATE TABLE</code>:</strong> Tạo bảng mới.</li>
+<pre><code class="language-sql">CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT NULL,
+    price DECIMAL(10, 2) DEFAULT 0.00,
+    stock INT UNSIGNED DEFAULT 0,
+    categoryId INT,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (categoryId) REFERENCES categories(id) ON DELETE SET NULL
+);
+</code></pre>
+                <li><strong><code>ALTER TABLE</code>:</strong> Chỉnh sửa cấu trúc bảng hiện có (thêm/xóa/sửa cột, ràng buộc, index).</li>
+<pre><code class="language-sql">-- Thêm cột mới
+ALTER TABLE products ADD COLUMN sku VARCHAR(100) UNIQUE AFTER name;
+
+-- Sửa kiểu dữ liệu cột
+ALTER TABLE products MODIFY COLUMN price DECIMAL(12, 2);
+
+-- Xóa cột
+ALTER TABLE products DROP COLUMN description;
+
+-- Thêm index
+ALTER TABLE products ADD INDEX idx_name (name);
+
+-- Thêm ràng buộc khóa ngoại
+ALTER TABLE products ADD CONSTRAINT fk_category FOREIGN KEY (categoryId) REFERENCES categories(id);
+</code></pre>
+                <li><strong><code>DROP TABLE</code>:</strong> Xóa bảng (mất cả cấu trúc và dữ liệu).</li>
+<pre><code class="language-sql">DROP TABLE products;</code></pre>
+                <li><strong><code>CREATE DATABASE</code>, <code>DROP DATABASE</code>:</strong> Tạo/Xóa database.</li>
+            </ul>
+
+             <h3>6. Ràng buộc (Constraints) và Chỉ mục (Indexes)</h3>
+            <ul>
+                <li><strong>Ràng buộc (Constraints):</strong> Quy tắc áp đặt lên dữ liệu trong bảng để đảm bảo tính toàn vẹn và hợp lệ.
+                    <ul>
+                        <li><code>PRIMARY KEY</code>: Định danh duy nhất, không NULL.</li>
+                        <li><code>FOREIGN KEY</code>: Đảm bảo tính toàn vẹn tham chiếu giữa các bảng. Có các hành động khi bản ghi được tham chiếu bị xóa/cập nhật (<code>ON DELETE</code>, <code>ON UPDATE</code>): <code>RESTRICT</code>, <code>CASCADE</code>, <code>SET NULL</code>, <code>NO ACTION</code>.</li>
+                        <li><code>UNIQUE</code>: Đảm bảo giá trị trong cột (hoặc tổ hợp cột) là duy nhất (cho phép một giá trị NULL).</li>
+                        <li><code>NOT NULL</code>: Cột không được phép chứa giá trị NULL.</li>
+                        <li><code>DEFAULT</code>: Cung cấp giá trị mặc định nếu không được chỉ định khi INSERT.</li>
+                        <li><code>CHECK</code>: (MySQL 8+) Kiểm tra một điều kiện logic trên giá trị cột.</li>
+                    </ul>
+                </li>
+                <li><strong>Chỉ mục (Indexes):</strong> Tăng tốc độ truy vấn (<code>SELECT</code>).
+                    <ul>
+                        <li>Tự động tạo index cho <code>PRIMARY KEY</code> và <code>UNIQUE</code> constraint.</li>
+                        <li>Nên tạo index trên các cột thường dùng trong mệnh đề <code>WHERE</code>, <code>JOIN</code>, <code>ORDER BY</code>.</li>
+                        <li>Các loại index: B-Tree (mặc định), Hash, Full-text, Spatial.</li>
+                        <li>Index trên nhiều cột (Composite Index).</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>7. Các phép toán và hàm trong MySQL</h3>
+            <ul>
+                <li><strong>Phép toán:</strong> Số học (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>/<code>MOD</code>), so sánh (<code>=</code>, <code>!=</code>/<code><></code>, <code>></code>, <code><</code>, <code>>=</code>, <code><=</code>, <code>LIKE</code>, <code>IN</code>, <code>BETWEEN</code>, <code>IS NULL</code>, <code>IS NOT NULL</code>), logic (<code>AND</code>, <code>OR</code>, <code>NOT</code>, <code>XOR</code>).</li>
+                <li><strong>Hàm tổng hợp (Aggregate Functions):</strong> <code>COUNT()</code>, <code>SUM()</code>, <code>AVG()</code>, <code>MIN()</code>, <code>MAX()</code>, <code>GROUP_CONCAT()</code>. Thường dùng với mệnh đề <code>GROUP BY</code>.</li>
+                <li><strong>Hàm chuỗi:</strong> <code>CONCAT()</code>, <code>LENGTH()</code>, <code>SUBSTRING()</code>, <code>UPPER()</code>, <code>LOWER()</code>, <code>REPLACE()</code>, <code>TRIM()</code>, etc.</li>
+                <li><strong>Hàm ngày giờ:</strong> <code>NOW()</code>, <code>CURDATE()</code>, <code>CURTIME()</code>, <code>DATE()</code>, <code>YEAR()</code>, <code>MONTH()</code>, <code>DAY()</code>, <code>HOUR()</code>, <code>MINUTE()</code>, <code>SECOND()</code>, <code>DATE_ADD()</code>, <code>DATE_SUB()</code>, <code>DATEDIFF()</code>, <code>DATE_FORMAT()</code>.</li>
+                <li><strong>Hàm điều khiển luồng:</strong> <code>IF()</code>, <code>IFNULL()</code>, <code>NULLIF()</code>, <code>CASE...WHEN...THEN...ELSE...END</code>.</li>
+                <li><strong>Hàm toán học:</strong> <code>ROUND()</code>, <code>FLOOR()</code>, <code>CEIL()</code> (<code>CEILING</code>), <code>ABS()</code>, <code>RAND()</code>, etc.</li>
+            </ul>
+<pre><code class="language-sql">-- Đếm số lượng user theo từng quốc gia, chỉ lấy quốc gia có nhiều hơn 5 user
+SELECT country, COUNT(id) as user_count
+FROM users
+GROUP BY country
+HAVING user_count > 5
+ORDER BY user_count DESC;
+
+-- Lấy tên user và tên category của sản phẩm họ đã đặt hàng
+SELECT u.name as user_name, c.name as category_name
+FROM users u
+JOIN orders o ON u.id = o.userId
+JOIN order_items oi ON o.id = oi.orderId
+JOIN products p ON oi.productId = p.id
+JOIN categories c ON p.categoryId = c.id
+WHERE u.id = 123;
+</code></pre>
+
+            <h3>8. Các mối quan hệ giữa các bảng (JOIN)</h3>
+            <p>Kết hợp dữ liệu từ hai hoặc nhiều bảng dựa trên các cột liên quan.</p>
+            <ul>
+                <li><strong><code>INNER JOIN</code> (hoặc <code>JOIN</code>):</strong> Trả về các hàng khi có sự trùng khớp ở cả hai bảng.</li>
+                <li><strong><code>LEFT JOIN</code> (hoặc <code>LEFT OUTER JOIN</code>):</strong> Trả về tất cả các hàng từ bảng bên trái và các hàng trùng khớp từ bảng bên phải. Nếu không có trùng khớp, các cột của bảng bên phải sẽ là NULL.</li>
+                <li><strong><code>RIGHT JOIN</code> (hoặc <code>RIGHT OUTER JOIN</code>):</strong> Trả về tất cả các hàng từ bảng bên phải và các hàng trùng khớp từ bảng bên trái. Nếu không có trùng khớp, các cột của bảng bên trái sẽ là NULL.</li>
+                <li><strong><code>FULL OUTER JOIN</code>:</strong> (MySQL không hỗ trợ trực tiếp, phải mô phỏng bằng <code>LEFT JOIN UNION RIGHT JOIN</code>) Trả về tất cả các hàng khi có trùng khớp ở một trong hai bảng.</li>
+                <li><strong><code>CROSS JOIN</code>:</strong> Tích Descartes, kết hợp mỗi hàng của bảng thứ nhất với mỗi hàng của bảng thứ hai (thường ít dùng hoặc dùng cẩn thận).</li>
+                <li><strong><code>Self JOIN</code>:</strong> Join một bảng với chính nó (dùng alias khác nhau cho bảng).</li>
+            </ul>
+<pre><code class="language-sql">-- Lấy thông tin user và đơn hàng của họ (nếu có)
+SELECT u.id, u.name, o.id as order_id, o.orderDate
+FROM users u
+LEFT JOIN orders o ON u.id = o.userId;
+
+-- Lấy thông tin sản phẩm và tên category tương ứng
+SELECT p.name as product_name, c.name as category_name
+FROM products p
+INNER JOIN categories c ON p.categoryId = c.id;
+</code></pre>
+
+            <h3>9. Normalization (Chuẩn hóa) và Denormalization (Phi chuẩn hóa)</h3>
+            <ul>
+                <li><strong>Normalization (Chuẩn hóa):</strong> Quá trình tổ chức dữ liệu trong database để giảm thiểu dư thừa dữ liệu (redundancy) và cải thiện tính toàn vẹn dữ liệu (integrity). Các dạng chuẩn phổ biến:
+                    <ul>
+                        <li><strong>1NF (First Normal Form):</strong> Mỗi ô (giao của hàng và cột) chứa một giá trị nguyên tố (atomic), không có nhóm lặp lại trong một cột. Mỗi hàng là duy nhất (có khóa chính).</li>
+                        <li><strong>2NF (Second Normal Form):</strong> Đã ở 1NF và tất cả các thuộc tính không khóa (non-key attributes) phải phụ thuộc hoàn toàn vào toàn bộ khóa chính (không phụ thuộc vào một phần của khóa chính nếu khóa chính là composite key).</li>
+                        <li><strong>3NF (Third Normal Form):</strong> Đã ở 2NF và không có sự phụ thuộc bắc cầu (transitive dependency), tức là các thuộc tính không khóa không được phụ thuộc vào các thuộc tính không khóa khác.</li>
+                        <li>Các dạng cao hơn (BCNF, 4NF, 5NF) ít phổ biến hơn trong thực tế.</li>
+                    </ul>
+                    <em>Lợi ích:</em> Giảm dư thừa, dễ bảo trì, tránh dị thường dữ liệu (update/insert/delete anomalies).
+                    <em>Nhược điểm:</em> Có thể cần nhiều JOIN hơn khi truy vấn, làm giảm hiệu năng đọc.
+                </li>
+                <li><strong>Denormalization (Phi chuẩn hóa):</strong> Quá trình cố ý thêm dữ liệu dư thừa vào bảng để tối ưu hóa hiệu năng đọc (giảm số lượng JOIN). Thường được áp dụng sau khi đã chuẩn hóa, dựa trên yêu cầu hiệu năng cụ thể.
+                    <em>Lợi ích:</em> Tăng tốc độ truy vấn đọc.
+                    <em>Nhược điểm:</em> Tăng dư thừa, phức tạp hơn khi cập nhật dữ liệu, có thể gây mất nhất quán nếu không quản lý cẩn thận. Là một sự đánh đổi.
+                </li>
+            </ul>
+        </section>
+
+        <section id="web-api">
+            <h2>V. Kiến thức về Web và API</h2>
+
+            <h3>1. HTTP và các phương thức HTTP</h3>
+            <ul>
+                <li><strong>HTTP (Hypertext Transfer Protocol):</strong> Giao thức tầng ứng dụng dùng để truyền tải tài nguyên (HTML, JSON, ảnh,...) trên World Wide Web. Hoạt động theo mô hình client-server (request-response).</li>
+                <li><strong>Các phương thức (Methods/Verbs):</strong> Chỉ định hành động mong muốn thực hiện trên tài nguyên.
+                    <ul>
+                        <li><strong><code>GET</code>:</strong> Yêu cầu lấy tài nguyên. An toàn (không thay đổi trạng thái server), Idempotent (gọi nhiều lần cho kết quả như một lần). Dữ liệu gửi qua URL (query string).</li>
+                        <li><strong><code>POST</code>:</strong> Gửi dữ liệu để tạo tài nguyên mới hoặc thực hiện một hành động gây thay đổi trạng thái. Không an toàn, không idempotent. Dữ liệu thường gửi trong request body.</li>
+                        <li><strong><code>PUT</code>:</strong> Gửi dữ liệu để cập nhật/thay thế toàn bộ tài nguyên tại một URI cụ thể. Idempotent. Dữ liệu gửi trong request body.</li>
+                        <li><strong><code>PATCH</code>:</strong> Gửi dữ liệu để cập nhật một phần tài nguyên. Không nhất thiết idempotent (tùy cách triển khai). Dữ liệu gửi trong request body.</li>
+                        <li><strong><code>DELETE</code>:</strong> Yêu cầu xóa tài nguyên. Idempotent.</li>
+                        <li><strong><code>HEAD</code>:</strong> Giống GET nhưng chỉ yêu cầu lấy headers, không lấy body. Dùng để kiểm tra tài nguyên trước khi GET.</li>
+                        <li><strong><code>OPTIONS</code>:</strong> Yêu cầu thông tin về các tùy chọn giao tiếp có sẵn cho tài nguyên (e.g., các method được phép, dùng cho CORS preflight).</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>2. Cấu trúc API: Response, Request, Body, Header</h3>
+            <ul>
+                <li><strong>Request (Yêu cầu):</strong> Client gửi đến Server. Bao gồm:
+                    <ul>
+                        <li><strong>Method:</strong> GET, POST, PUT, etc.</li>
+                        <li><strong>URL (Uniform Resource Locator):</strong> Địa chỉ định danh tài nguyên. Bao gồm scheme (http/https), host, port (tùy chọn), path, query string (tùy chọn).</li>
+                        <li><strong>HTTP Version:</strong> e.g., HTTP/1.1, HTTP/2.</li>
+                        <li><strong>Headers:</strong> Thông tin meta về request (e.g., <code>Content-Type</code>, <code>Authorization</code>, <code>Accept</code>, <code>User-Agent</code>, <code>Cookie</code>).</li>
+                        <li><strong>Body (Tùy chọn):</strong> Dữ liệu gửi kèm (thường có với POST, PUT, PATCH). Định dạng được chỉ định bởi header <code>Content-Type</code> (e.g., <code>application/json</code>, <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code>).</li>
+                    </ul>
+                </li>
+                <li><strong>Response (Phản hồi):</strong> Server gửi trả lời Client. Bao gồm:
+                    <ul>
+                        <li><strong>HTTP Version:</strong> e.g., HTTP/1.1, HTTP/2.</li>
+                        <li><strong>Status Code:</strong> Mã số chỉ trạng thái kết quả của request (e.g., 200, 404, 500).</li>
+                        <li><strong>Status Text (Reason Phrase):</strong> Mô tả ngắn gọn của status code (e.g., OK, Not Found, Internal Server Error).</li>
+                        <li><strong>Headers:</strong> Thông tin meta về response (e.g., <code>Content-Type</code>, <code>Content-Length</code>, <code>Set-Cookie</code>, <code>Cache-Control</code>).</li>
+                        <li><strong>Body (Tùy chọn):</strong> Dữ liệu trả về (thường có với response thành công của GET, POST, PUT, PATCH). Định dạng được chỉ định bởi header <code>Content-Type</code> (thường là <code>application/json</code> cho API).</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>3. Status Code (Mã trạng thái HTTP)</h3>
+            <p>Cho biết kết quả xử lý request của server.</p>
+            <ul>
+                <li><strong>1xx (Informational):</strong> Yêu cầu đã được nhận, đang tiếp tục xử lý (ít gặp trong API thông thường).</li>
+                <li><strong>2xx (Success):</strong> Yêu cầu đã được nhận, hiểu và xử lý thành công.
+                    <ul>
+                        <li><code>200 OK</code>: Thành công chung (cho GET, PUT, PATCH, DELETE).</li>
+                        <li><code>201 Created</code>: Tạo tài nguyên thành công (cho POST, PUT). Thường kèm header <code>Location</code> chỉ URI của tài nguyên mới.</li>
+                        <li><code>204 No Content</code>: Thành công nhưng không có nội dung trả về (cho DELETE, đôi khi PUT/PATCH).</li>
+                    </ul>
+                </li>
+                <li><strong>3xx (Redirection):</strong> Cần hành động thêm từ client để hoàn thành request (e.g., chuyển hướng).
+                    <ul>
+                        <li><code>301 Moved Permanently</code>: Tài nguyên đã chuyển vĩnh viễn sang URI khác.</li>
+                        <li><code>302 Found</code> / <code>307 Temporary Redirect</code>: Chuyển hướng tạm thời.</li>
+                        <li><code>304 Not Modified</code>: Tài nguyên không thay đổi (dùng với caching).</li>
+                    </ul>
+                </li>
+                <li><strong>4xx (Client Error):</strong> Yêu cầu có lỗi từ phía client.
+                    <ul>
+                        <li><code>400 Bad Request</code>: Yêu cầu không hợp lệ (sai cú pháp, thiếu dữ liệu, validation fail).</li>
+                        <li><code>401 Unauthorized</code>: Cần xác thực (chưa login hoặc token sai/hết hạn).</li>
+                        <li><code>403 Forbidden</code>: Đã xác thực nhưng không có quyền truy cập tài nguyên.</li>
+                        <li><code>404 Not Found</code>: Không tìm thấy tài nguyên được yêu cầu.</li>
+                        <li><code>405 Method Not Allowed</code>: Phương thức HTTP không được phép cho tài nguyên này.</li>
+                        <li><code>409 Conflict</code>: Xung đột trạng thái (e.g., cố tạo tài nguyên đã tồn tại).</li>
+                        <li><code>422 Unprocessable Entity</code>: Dữ liệu hợp lệ về cú pháp nhưng không thể xử lý về mặt ngữ nghĩa (thường dùng cho lỗi validation chi tiết).</li>
+                        <li><code>429 Too Many Requests</code>: Rate limiting - client gửi quá nhiều request.</li>
+                    </ul>
+                </li>
+                <li><strong>5xx (Server Error):</strong> Server gặp lỗi khi xử lý yêu cầu hợp lệ.
+                    <ul>
+                        <li><code>500 Internal Server Error</code>: Lỗi chung phía server không xác định được.</li>
+                        <li><code>501 Not Implemented</code>: Server không hỗ trợ chức năng cần thiết.</li>
+                        <li><code>502 Bad Gateway</code>: Server gateway/proxy nhận được phản hồi không hợp lệ từ server upstream.</li>
+                        <li><code>503 Service Unavailable</code>: Server tạm thời không thể xử lý request (quá tải, đang bảo trì).</li>
+                        <li><code>504 Gateway Timeout</code>: Server gateway/proxy không nhận được phản hồi kịp thời từ server upstream.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>4. RESTful APIs</h3>
+            <p><strong>REST (Representational State Transfer):</strong> Một kiểu kiến trúc phần mềm cho các hệ thống phân tán, đặc biệt là các ứng dụng web. API tuân thủ các ràng buộc của REST được gọi là RESTful API.</p>
+            <ul>
+                <li><strong>Ràng buộc chính:</strong>
+                    <ul>
+                        <li><strong>Client-Server:</strong> Tách biệt rõ ràng giữa client (UI) và server (lưu trữ/xử lý dữ liệu).</li>
+                        <li><strong>Stateless (Phi trạng thái):</strong> Mỗi request từ client đến server phải chứa đủ thông tin để server hiểu và xử lý, không dựa vào context/trạng thái lưu trữ trên server từ các request trước đó. Trạng thái session được lưu ở client.</li>
+                        <li><strong>Cacheable (Có thể lưu vào bộ đệm):</strong> Response phải tự chỉ định là cacheable hay không để client có thể tái sử dụng, cải thiện hiệu năng.</li>
+                        <li><strong>Layered System (Hệ thống phân lớp):</strong> Client không cần biết liệu nó đang kết nối trực tiếp đến server cuối hay qua các lớp trung gian (proxy, load balancer).</li>
+                        <li><strong>Uniform Interface (Giao diện đồng nhất):</strong> Ràng buộc quan trọng nhất, đơn giản hóa và tách biệt kiến trúc. Bao gồm:
+                            <ul>
+                                <li><em>Identification of resources:</em> Định danh tài nguyên bằng URI (e.g., <code>/users</code>, <code>/users/123</code>).</li>
+                                <li><em>Manipulation of resources through representations:</em> Thao tác tài nguyên thông qua biểu diễn của nó (thường là JSON/XML). Client có thể gửi biểu diễn đã sửa đổi để cập nhật tài nguyên.</li>
+                                <li><em>Self-descriptive messages:</em> Mỗi message (request/response) tự mô tả đủ để hiểu (e.g., dùng HTTP methods chuẩn, status codes, headers như <code>Content-Type</code>, <code>Accept</code>).</li>
+                                <li><em>HATEOAS (Hypermedia as the Engine of Application State):</em> (Tùy chọn nhưng là lý tưởng của REST) Response chứa các liên kết (hyperlinks) để client khám phá các hành động/tài nguyên tiếp theo có thể truy cập.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Code on Demand (Tùy chọn):</strong> Server có thể tạm thời mở rộng hoặc tùy chỉnh chức năng của client bằng cách gửi code thực thi (e.g., JavaScript).</li>
+                    </ul>
+                </li>
+                <li><strong>Đặc điểm thường thấy của RESTful API:</strong>
+                    <ul>
+                        <li>Sử dụng URI để định danh tài nguyên (thường là danh từ số nhiều, e.g., <code>/users</code>, <code>/products</code>).</li>
+                        <li>Sử dụng các phương thức HTTP chuẩn (GET, POST, PUT, PATCH, DELETE) cho các thao tác CRUD.</li>
+                        <li>Sử dụng JSON làm định dạng dữ liệu phổ biến.</li>
+                        <li>Sử dụng status codes HTTP để chỉ kết quả.</li>
+                        <li>Thiết kế stateless.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>5. JSON (JavaScript Object Notation)</h3>
+            <ul>
+                <li>Định dạng trao đổi dữ liệu nhẹ, dễ đọc/viết cho người, dễ phân tích/tạo cho máy.</li>
+                <li>Dựa trên cú pháp object của JavaScript nhưng là định dạng text độc lập ngôn ngữ.</li>
+                <li>Cấu trúc:
+                    <ul>
+                        <li><strong>Object:</strong> Tập hợp các cặp <code>"key": value</code> không có thứ tự, đặt trong dấu ngoặc nhọn <code>{}</code>. Key phải là string đặt trong dấu ngoặc kép.</li>
+                        <li><strong>Array:</strong> Danh sách các giá trị có thứ tự, đặt trong dấu ngoặc vuông <code>[]</code>.</li>
+                        <li><strong>Values:</strong> Có thể là <code>string</code> (trong ngoặc kép), <code>number</code>, <code>object</code>, <code>array</code>, <code>true</code>, <code>false</code>, <code>null</code>.</li>
+                    </ul>
+                </li>
+                <li>Là định dạng phổ biến nhất cho request/response body trong RESTful APIs.</li>
+            </ul>
+<pre><code class="language-json">{
+  "id": 123,
+  "name": "Example Product",
+  "price": 99.99,
+  "isAvailable": true,
+  "tags": ["tag1", "tag2"],
+  "dimensions": {
+    "width": 10,
+    "height": 20,
+    "unit": "cm"
+  },
+  "relatedIds": null
+}
+</code></pre>
+
+        </section>
+
+        <footer>
+            <hr>
+            <p style="text-align: center; font-size: 0.9em; color: #6c757d;">
+                Tài liệu ôn tập BE NestJS - Cập nhật [Ngày tháng năm]
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
