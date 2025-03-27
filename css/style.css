@@ -39,42 +39,104 @@ body {
     overflow-y: auto; /* Cho phép cuộn sidebar nếu nội dung dài */
 }
 
-.sidebar h1 {
-    font-size: 1.4em; /* Giảm kích thước tiêu đề sidebar */
-    margin-bottom: 25px;
-    color: #212529; /* Màu tiêu đề đậm hơn */
-    font-weight: 600;
-    padding-bottom: 10px;
+/* Phần đầu Sidebar */
+.sidebar-brand {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
     border-bottom: 1px solid #e9ecef;
 }
 
+.sidebar-logo {
+    max-width: 100px; /* Điều chỉnh kích thước logo nếu cần */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.sidebar-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 10px 8px 30px; /* Thêm padding trái cho icon */
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #6c757d; /* Màu chữ placeholder */
+}
+
+.search-box::before { /* Icon tìm kiếm giả */
+    content: '🔍'; /* Hoặc dùng icon font/SVG */
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+/* Navigation Sidebar */
 .sidebar nav ul {
     list-style: none;
+    padding-left: 0; /* Reset padding mặc định của ul */
 }
 
 .sidebar nav ul li {
-    margin-bottom: 8px; /* Giảm khoảng cách giữa các mục */
+    margin-bottom: 5px; /* Giảm khoảng cách */
 }
 
 .sidebar nav ul li a {
     text-decoration: none;
-    color: #495057; /* Màu liên kết mặc định trầm hơn */
+    color: #495057;
     display: block;
-    padding: 8px 10px; /* Tăng padding cho dễ click */
-    border-radius: 4px; /* Bo góc nhẹ */
+    padding: 6px 10px; /* Giảm padding */
+    border-radius: 4px;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    font-size: 0.95em;
+    font-size: 0.9em; /* Giảm cỡ chữ một chút */
+    line-height: 1.5;
 }
 
 .sidebar nav ul li a:hover {
-    background-color: #e9ecef; /* Nền khi hover */
+    background-color: #e9ecef;
     color: #0056b3;
 }
 
+/* Kiểu cho tiêu đề mục lớn (ví dụ: GIỚI THIỆU, PHỤ LỤC) */
+.nav-section-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #6c757d; /* Màu xám */
+    font-size: 0.85em;
+    margin-top: 20px; /* Khoảng cách phía trên */
+    margin-bottom: 10px;
+    padding-left: 10px; /* Căn lề giống các mục con */
+}
+
+/* Thụt lề cho các cấp độ */
+.sidebar nav ul ul { /* Cấp 2 */
+    padding-left: 15px;
+    margin-top: 5px; /* Khoảng cách với mục cha */
+}
+
+.sidebar nav ul ul ul { /* Cấp 3 */
+    padding-left: 15px;
+    margin-top: 5px;
+}
+/* Thêm các cấp độ khác nếu cần */
+
 .sidebar nav ul li a.active {
-    background-color: #007bff; /* Nền xanh cho mục active */
-    color: #fff; /* Chữ trắng */
-    font-weight: 500; /* Không cần quá đậm */
+    /* background-color: #007bff; */ /* Bỏ nền xanh */
+    /* color: #fff; */ /* Bỏ chữ trắng */
+    color: #0056b3; /* Màu chữ đậm hơn cho mục active */
+    font-weight: bold; /* Làm đậm chữ */
 }
 
 /* Khu vực nội dung chính */
