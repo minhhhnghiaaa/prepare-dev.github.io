@@ -1,0 +1,195 @@
+/* Reset cơ bản và cài đặt chung */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Cuộn mượt */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Font hệ thống hiện đại */
+    line-height: 1.7; /* Tăng chiều cao dòng để dễ đọc */
+    color: #333;
+    background-color: #f8f9fa; /* Màu nền tổng thể nhẹ nhàng */
+}
+
+/* Container chính */
+.container {
+    display: flex;
+    max-width: 1400px; /* Tăng chiều rộng tối đa một chút */
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Thêm bóng đổ nhẹ */
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px; /* Tăng chiều rộng sidebar */
+    flex-shrink: 0; /* Ngăn sidebar co lại */
+    background-color: #fff; /* Sidebar cùng màu nền với container */
+    padding: 30px 20px;
+    border-right: 1px solid #e9ecef; /* Viền phân cách tinh tế hơn */
+    position: sticky; /* Làm sidebar dính khi cuộn */
+    top: 0;
+    height: 100vh;
+    overflow-y: auto; /* Cho phép cuộn sidebar nếu nội dung dài */
+}
+
+.sidebar h1 {
+    font-size: 1.4em; /* Giảm kích thước tiêu đề sidebar */
+    margin-bottom: 25px;
+    color: #212529; /* Màu tiêu đề đậm hơn */
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 8px; /* Giảm khoảng cách giữa các mục */
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #495057; /* Màu liên kết mặc định trầm hơn */
+    display: block;
+    padding: 8px 10px; /* Tăng padding cho dễ click */
+    border-radius: 4px; /* Bo góc nhẹ */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    font-size: 0.95em;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: #e9ecef; /* Nền khi hover */
+    color: #0056b3;
+}
+
+.sidebar nav ul li a.active {
+    background-color: #007bff; /* Nền xanh cho mục active */
+    color: #fff; /* Chữ trắng */
+    font-weight: 500; /* Không cần quá đậm */
+}
+
+/* Khu vực nội dung chính */
+.content {
+    flex-grow: 1;
+    padding: 40px 50px; /* Tăng padding nội dung */
+    overflow-y: auto; /* Cho phép cuộn nội dung */
+}
+
+.content article h2 {
+    font-size: 2em; /* Tăng kích thước tiêu đề chính */
+    margin-bottom: 25px;
+    color: #343a40;
+    border-bottom: 2px solid #dee2e6; /* Viền dưới tiêu đề đậm hơn */
+    padding-bottom: 15px;
+    font-weight: 600;
+}
+
+.content article h3 {
+    font-size: 1.5em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #495057;
+    font-weight: 600;
+}
+
+.content article p {
+    margin-bottom: 18px; /* Tăng khoảng cách đoạn văn */
+    color: #495057; /* Màu chữ nội dung */
+}
+
+.content article code {
+    background-color: #e9ecef;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.content article pre {
+    background-color: #212529; /* Nền tối cho khối code */
+    color: #f8f9fa; /* Chữ sáng */
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto; /* Cho phép cuộn ngang nếu code dài */
+    margin-bottom: 20px;
+}
+
+.content article pre code {
+    background-color: transparent;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+.content article ul,
+.content article ol {
+    margin-bottom: 18px;
+    padding-left: 30px; /* Thụt lề danh sách */
+}
+
+.content article li {
+    margin-bottom: 8px;
+}
+
+/* Thiết kế đáp ứng (Responsive) */
+@media (max-width: 992px) {
+    .content {
+        padding: 30px 35px;
+    }
+    .sidebar {
+        width: 240px; /* Giảm chiều rộng sidebar một chút */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Chuyển layout thành cột */
+    }
+
+    .sidebar {
+        width: 100%; /* Sidebar chiếm toàn bộ chiều rộng */
+        height: auto; /* Chiều cao tự động */
+        position: static; /* Bỏ sticky */
+        border-right: none;
+        border-bottom: 1px solid #e9ecef;
+        overflow-y: visible;
+        padding: 20px; /* Giảm padding */
+    }
+
+    .sidebar h1 {
+        text-align: center;
+        margin-bottom: 15px;
+        border-bottom: none; /* Bỏ viền dưới tiêu đề sidebar */
+    }
+
+    .sidebar nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 10px; /* Thêm khoảng trống dưới menu */
+    }
+
+    .sidebar nav ul li {
+        margin: 5px; /* Khoảng cách giữa các mục */
+    }
+
+    .sidebar nav ul li a {
+        padding: 8px 12px; /* Điều chỉnh padding */
+    }
+
+    .content {
+        padding: 30px 20px; /* Giảm padding nội dung */
+    }
+
+    .content article h2 {
+        font-size: 1.8em;
+    }
+}
