@@ -12,8 +12,8 @@ html {
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Font hệ thống hiện đại */
     line-height: 1.7; /* Tăng chiều cao dòng để dễ đọc */
-    color: #333;
-    background-color: #f8f9fa; /* Màu nền tổng thể nhẹ nhàng */
+    color: #303030;
+    background-color: #f5f7f9; /* Màu nền tổng thể nhẹ nhàng */
 }
 
 /* Container chính */
@@ -22,15 +22,15 @@ body {
     max-width: 1400px; /* Tăng chiều rộng tối đa một chút */
     margin: 0 auto;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Thêm bóng đổ nhẹ */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08); /* Thêm bóng đổ nhẹ */
     min-height: 100vh;
 }
 
 /* Sidebar */
 .sidebar {
-    width: 280px; /* Tăng chiều rộng sidebar */
+    width: 300px; /* Tăng chiều rộng sidebar */
     flex-shrink: 0; /* Ngăn sidebar co lại */
-    background-color: #fff; /* Sidebar cùng màu nền với container */
+    background-color: #f8f9fa; /* Sidebar màu nhạt hơn so với nội dung */
     padding: 30px 20px;
     border-right: 1px solid #e9ecef; /* Viền phân cách tinh tế hơn */
     position: sticky; /* Làm sidebar dính khi cuộn */
@@ -42,34 +42,34 @@ body {
 /* Phần đầu Sidebar */
 .sidebar-brand {
     text-align: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
     border-bottom: 1px solid #e9ecef;
 }
 
 .sidebar-logo {
-    max-width: 100px; /* Điều chỉnh kích thước logo nếu cần */
+    max-width: 120px; /* Điều chỉnh kích thước logo nếu cần */
     height: auto;
     margin-bottom: 10px;
 }
 
 .sidebar-title {
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: 600;
-    color: #212529;
-    margin-bottom: 20px;
+    color: #1a73e8;
+    margin-bottom: 10px;
 }
 
 .search-box {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .search-box input {
     width: 100%;
-    padding: 8px 10px 8px 30px; /* Thêm padding trái cho icon */
+    padding: 10px 10px 10px 35px; /* Thêm padding trái cho icon */
     border: 1px solid #ced4da;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 0.9em;
     color: #6c757d; /* Màu chữ placeholder */
 }
@@ -97,27 +97,27 @@ body {
     text-decoration: none;
     color: #495057;
     display: block;
-    padding: 6px 10px; /* Giảm padding */
+    padding: 8px 12px; /* Điều chỉnh padding */
     border-radius: 4px;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    font-size: 0.9em; /* Giảm cỡ chữ một chút */
+    font-size: 0.95em; /* Điều chỉnh cỡ chữ */
     line-height: 1.5;
 }
 
 .sidebar nav ul li a:hover {
     background-color: #e9ecef;
-    color: #0056b3;
+    color: #1a73e8;
 }
 
-/* Kiểu cho tiêu đề mục lớn (ví dụ: GIỚI THIỆU, PHỤ LỤC) */
+/* Kiểu cho tiêu đề mục lớn */
 .nav-section-title {
     font-weight: bold;
     text-transform: uppercase;
     color: #6c757d; /* Màu xám */
     font-size: 0.85em;
-    margin-top: 20px; /* Khoảng cách phía trên */
+    margin-top: 25px; /* Khoảng cách phía trên */
     margin-bottom: 10px;
-    padding-left: 10px; /* Căn lề giống các mục con */
+    padding-left: 12px; /* Căn lề giống các mục con */
 }
 
 /* Thụt lề cho các cấp độ */
@@ -130,27 +130,25 @@ body {
     padding-left: 15px;
     margin-top: 5px;
 }
-/* Thêm các cấp độ khác nếu cần */
 
 .sidebar nav ul li a.active {
-    /* background-color: #007bff; */ /* Bỏ nền xanh */
-    /* color: #fff; */ /* Bỏ chữ trắng */
-    color: #0056b3; /* Màu chữ đậm hơn cho mục active */
+    color: #1a73e8; /* Màu chữ highlight cho mục active */
     font-weight: bold; /* Làm đậm chữ */
+    background-color: rgba(26, 115, 232, 0.1); /* Nền nhạt */
 }
 
 /* Khu vực nội dung chính */
 .content {
     flex-grow: 1;
-    padding: 40px 50px; /* Tăng padding nội dung */
+    padding: 40px 60px; /* Tăng padding nội dung */
     overflow-y: auto; /* Cho phép cuộn nội dung */
 }
 
 .content article h2 {
     font-size: 2em; /* Tăng kích thước tiêu đề chính */
     margin-bottom: 25px;
-    color: #343a40;
-    border-bottom: 2px solid #dee2e6; /* Viền dưới tiêu đề đậm hơn */
+    color: #1a73e8;
+    border-bottom: 2px solid #dee2e6; /* Viền dưới tiêu đề */
     padding-bottom: 15px;
     font-weight: 600;
 }
@@ -159,7 +157,7 @@ body {
     font-size: 1.5em;
     margin-top: 30px;
     margin-bottom: 15px;
-    color: #495057;
+    color: #2c3e50;
     font-weight: 600;
 }
 
@@ -169,45 +167,98 @@ body {
 }
 
 .content article code {
-    background-color: #e9ecef;
+    background-color: #f0f4f8;
     padding: 0.2em 0.4em;
     border-radius: 3px;
     font-size: 0.9em;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #1a73e8;
 }
 
 .content article pre {
-    background-color: #212529; /* Nền tối cho khối code */
-    color: #f8f9fa; /* Chữ sáng */
+    background-color: #f8f9fa; /* Nền nhạt cho khối code */
+    color: #212529;
     padding: 15px;
     border-radius: 5px;
     overflow-x: auto; /* Cho phép cuộn ngang nếu code dài */
     margin-bottom: 20px;
+    border: 1px solid #e9ecef;
 }
 
 .content article pre code {
     background-color: transparent;
     padding: 0;
     font-size: 0.9em;
+    display: block;
 }
 
 .content article ul,
 .content article ol {
     margin-bottom: 18px;
-    padding-left: 30px; /* Thụt lề danh sách */
+    padding-left: 25px; /* Thụt lề danh sách */
 }
 
 .content article li {
     margin-bottom: 8px;
 }
 
+/* Thêm style cho bảng */
+.content article table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+.content article table th {
+    background-color: #f8f9fa;
+    color: #1a73e8;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #e9ecef;
+}
+
+.content article table td {
+    padding: 10px 12px;
+    border: 1px solid #e9ecef;
+}
+
+.content article table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Style cho blockquote */
+.content article blockquote {
+    border-left: 4px solid #1a73e8;
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    background-color: #f8f9fa;
+}
+
+/* Style cho buttons và links */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #1a73e8;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #1557b0;
+}
+
 /* Thiết kế đáp ứng (Responsive) */
 @media (max-width: 992px) {
     .content {
-        padding: 30px 35px;
+        padding: 30px 40px;
     }
     .sidebar {
-        width: 240px; /* Giảm chiều rộng sidebar một chút */
+        width: 260px; /* Giảm chiều rộng sidebar */
     }
 }
 
@@ -226,32 +277,39 @@ body {
         padding: 20px; /* Giảm padding */
     }
 
-    .sidebar h1 {
-        text-align: center;
+    .sidebar-brand {
         margin-bottom: 15px;
-        border-bottom: none; /* Bỏ viền dưới tiêu đề sidebar */
+        padding-bottom: 10px;
     }
 
-    .sidebar nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-bottom: 10px; /* Thêm khoảng trống dưới menu */
-    }
-
-    .sidebar nav ul li {
-        margin: 5px; /* Khoảng cách giữa các mục */
-    }
-
-    .sidebar nav ul li a {
-        padding: 8px 12px; /* Điều chỉnh padding */
+    .search-box {
+        max-width: 400px;
+        margin: 0 auto 20px;
     }
 
     .content {
-        padding: 30px 20px; /* Giảm padding nội dung */
+        padding: 25px;
     }
 
     .content article h2 {
         font-size: 1.8em;
+    }
+
+    .content article h3 {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 576px) {
+    .content {
+        padding: 20px 15px;
+    }
+
+    .content article pre {
+        padding: 10px;
+    }
+
+    .content article table {
+        font-size: 0.85em;
     }
 }
